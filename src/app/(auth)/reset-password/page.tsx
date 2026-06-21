@@ -20,7 +20,7 @@ export default function ResetPasswordPage() {
   async function onSubmit(data: ResetPasswordInput) {
     setError(null);
     const result = await resetPassword(token, data);
-    if (!result.success) { setError(result.error); return; }
+    if (!result.success) { setError((result as any).error || (result as any).message || "An unknown error occurred"); return; }
     setDone(true);
     setTimeout(() => router.push("/login"), 2500);
   }

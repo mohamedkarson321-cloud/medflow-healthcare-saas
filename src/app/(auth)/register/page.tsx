@@ -40,7 +40,7 @@ export default function RegisterPage() {
     try {
       const result = await registerUser(data);
       if (!result.success) {
-        setAuthError(result.error);
+        setAuthError((result as any).error || (result as any).message || "An unknown error occurred");
         return;
       }
       toast.success("Account created! Please check your email to verify your account.");

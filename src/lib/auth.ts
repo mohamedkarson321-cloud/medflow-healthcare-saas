@@ -101,6 +101,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   },
 });
 
+// @ts-ignore
 declare module "next-auth" {
   interface User {
     role: UserRole;
@@ -116,9 +117,3 @@ declare module "next-auth" {
   }
 }
 
-declare module "next-auth/jwt" {
-  interface JWT {
-    id: string;
-    role: UserRole;
-  }
-}

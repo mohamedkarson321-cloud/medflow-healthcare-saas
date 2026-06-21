@@ -74,12 +74,12 @@ export default function PricingPage() {
             <div
               key={plan.id}
               className={`relative flex flex-col rounded-2xl border bg-card p-8 shadow-card transition-all hover:shadow-card-md ${
-                plan.popular
+                (plan as any).popular
                   ? "border-primary ring-2 ring-primary ring-offset-2 scale-[1.02]"
                   : ""
               }`}
             >
-              {plan.popular && (
+              {(plan as any).popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
                   <span className="rounded-full bg-primary px-4 py-1 text-xs font-semibold text-white shadow-sm">
                     Most Popular
@@ -109,7 +109,7 @@ export default function PricingPage() {
               <Link href={`/register?plan=${plan.id}`}>
                 <Button
                   className="w-full"
-                  variant={plan.popular ? "default" : "outline"}
+                  variant={(plan as any).popular ? "default" : "outline"}
                   size="lg"
                   rightIcon={<ArrowRight />}
                 >

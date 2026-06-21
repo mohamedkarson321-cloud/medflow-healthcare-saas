@@ -928,7 +928,7 @@ model MedicalRecord {
   physicalExamination String?     @db.Text
   
   // Assessment
-  diagnosis       Diagnosis[]
+  diagnoses       Diagnosis[]
   differentialDiagnosis String?  @db.Text
   
   // Plan

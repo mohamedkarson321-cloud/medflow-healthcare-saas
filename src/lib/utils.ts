@@ -186,7 +186,6 @@ export function getStatusColor(status: string): string {
     // Lab
     REQUESTED: "blue",
     SAMPLE_COLLECTED: "purple",
-    IN_PROGRESS: "orange",
     // Prescription
     ACTIVE: "green",
     EXPIRED: "red",

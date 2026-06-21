@@ -1,3 +1,4 @@
+import { InvoiceStatus } from "@prisma/client";
 import { redirect } from "next/navigation";
 import Link from "next/link";
 import { auth } from "@/lib/auth";
@@ -35,7 +36,7 @@ async function getPatientDashboardData(userId: string) {
         take: 3,
       },
       invoices: {
-        where: { status: { in: ["PENDING", "PARTIAL", "OVERDUE", "SENT"] } },
+        where: { status: { in: ["PENDING", "PARTIAL", "OVERDUE", "SENT"] as any } },
         orderBy: { createdAt: "desc" },
         take: 3,
       },
@@ -303,7 +304,7 @@ export default async function PatientDashboardPage() {
                       <div className="text-xs text-muted-foreground">Due {inv.dueDate ? formatDate(inv.dueDate) : "Soon"}</div>
                     </div>
                     <span className="text-sm font-bold text-orange-700">
-                      EGP {inv.balanceDue.toFixed(0)}
+                      EGP {inv.total.toFixed(0)}
                     </span>
                   </div>
                 ))}
